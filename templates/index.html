@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotly Flask App</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Interactive Visualization using Plotly</h1>
+    
+    <!-- Div to render the Plotly chart -->
+    <div id="plotly-chart"></div>
+
+    <script>
+        // Get the Plotly graph JSON from the backend
+        const graphJSON = JSON.parse(`{{ graph_json | safe }}`);
+        
+        // Render the chart in the div with id 'plotly-chart'
+        Plotly.newPlot('plotly-chart', graphJSON.data, graphJSON.layout);
+    </script>
+</body>
+</html>
